@@ -1,0 +1,188 @@
+/* Color palette inspired by the original design */
+:root {
+  --white: #ffffff;
+  --stone-50: #faf6f0;
+  --stone-100: #f3f4f6;
+  --stone-150: #e8e7e4;
+  --stone-400: #9b9b9b;
+  --stone-600: #6b6b6b;
+  --stone-900: #2b2b2b;
+
+  --brown-800: #7b4429;
+  --rose-50: #fff6f9;
+  --rose-200: #f8d7e1;
+  --rose-800: #7a2842;
+
+  --radius-lg: 16px;
+  --radius-sm: 12px;
+  --shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--stone-900);
+  line-height: 1.6;
+  background: var(--stone-50);
+}
+
+.page {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: start;
+  padding: 32px 16px;
+  background:
+    radial-gradient(18px 18px at 94% 32%, rgba(116, 201, 201, 0.2) 0 99%, transparent 100%),
+    radial-gradient(18px 18px at 6% 72%, rgba(116, 201, 201, 0.2) 0 99%, transparent 100%),
+    #f3e5d8; /* warm paper */
+}
+
+.card {
+  width: 100%;
+  max-width: 740px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.content {
+  padding: 28px clamp(20px, 4vw, 42px) 36px;
+}
+
+/* Typography */
+h1, h2 {
+  font-family: 'Young Serif', Georgia, 'Times New Roman', serif;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+
+h1 {
+  font-size: clamp(1.8rem, 2.8vw + 1rem, 2.6rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 1.1vw + 1rem, 1.5rem);
+  color: var(--brown-800);
+}
+
+p {
+  color: var(--stone-600);
+  margin: 0 0 22px;
+}
+
+/* Preparation box */
+.prep {
+  background: var(--rose-50);
+  border-radius: var(--radius-sm);
+  padding: 18px 22px;
+  margin: 26px 0 28px;
+}
+
+.prep h2 {
+  color: var(--rose-800);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.prep ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.prep li {
+  padding-left: 10px;
+  margin: 8px 0;
+}
+
+.prep .label {
+  font-weight: 700;
+}
+
+/* Lists */
+.ingredients ul,
+.instructions ol {
+  margin: 0 0 26px;
+  padding-left: 22px;
+}
+
+.ingredients li,
+.instructions li {
+  margin: 10px 0;
+  padding-left: 10px;
+}
+
+/* Marker styling to match the design */
+.ingredients li::marker { color: var(--brown-800); }
+.instructions li::marker {
+  color: var(--brown-800);
+  font-weight: 700;
+}
+
+.instructions ol {
+  list-style: decimal;
+}
+
+.instructions li strong {
+  color: var(--brown-800);
+}
+
+/* Divider between sections */
+.ingredients,
+.instructions,
+.nutrition {
+  border-top: 1px solid var(--stone-150);
+  padding-top: 26px;
+}
+
+.ingredients { border-top: none; padding-top: 0; }
+
+/* Nutrition table */
+.nutrition .table {
+  margin-top: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.nutrition .row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--stone-150);
+}
+
+.nutrition .row:last-child { border-bottom: none; }
+
+.nutrition .cell { color: #555; }
+.nutrition .cell.value { color: var(--brown-800); font-weight: 700; }
+
+/* Footer */
+.attribution {
+  text-align: center;
+  color: #7a7a7a;
+  font-size: 0.9rem;
+  padding: 18px 0 8px;
+}
+
+/* Desktop spacing refinements */
+@media (min-width: 840px) {
+  .content { padding: 36px 42px 48px; }
+  .prep { margin: 30px 0; }
+}
